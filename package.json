@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "glob": "^7.1.2",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "serialize-javascript": "^1.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
