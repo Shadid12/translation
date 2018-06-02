@@ -23,7 +23,25 @@ app.get('/', (req, res) => {
     if (!messages) {
         return res.status(404).send('Locale is not supported.');
     }
-    res.send(`${serialize({locale, messages})}`)
+    res.send(
+`
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>React Intl Translations Example</title>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            window.App = ${serialize({locale, messages})};
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.0/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.0/umd/react-dom.production.min.js"></script>
+    </body>
+    </html>
+`
+    )
 })
 
 // app.use(express.static('build'));
